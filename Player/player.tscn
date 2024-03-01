@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://dtspkjfjkilvl"]
+
+[ext_resource type="Texture2D" uid="uid://x28wwbwtnv13" path="res://Material freeway/galinha/baixo/sprite_0.png" id="1_hgpxr"]
+[ext_resource type="Texture2D" uid="uid://bidb143gkrv0l" path="res://Material freeway/galinha/baixo/sprite_1.png" id="2_6ovmm"]
+[ext_resource type="Texture2D" uid="uid://cej7a77obcdol" path="res://Material freeway/galinha/baixo/sprite_2.png" id="3_w20ga"]
+[ext_resource type="Texture2D" uid="uid://dnp8bv0uq0vm3" path="res://Material freeway/galinha/cima/sprite_0.png" id="4_2c81l"]
+[ext_resource type="Texture2D" uid="uid://bl5tmlv1bj3un" path="res://Material freeway/galinha/cima/sprite_1.png" id="5_10gpr"]
+[ext_resource type="Texture2D" uid="uid://w6g33ax2wnqh" path="res://Material freeway/galinha/cima/sprite_2.png" id="6_skdyv"]
+[ext_resource type="AudioStream" uid="uid://cvvoric3yfqke" path="res://Material freeway/sons/colide.wav" id="7_rl67p"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="8_on7w5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fjy2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hgpxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6ovmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w20ga")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2c81l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_10gpr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_skdyv")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sjm07"]
+radius = 15.0333
+
+[node name="Player" type="Area2D"]
+script = ExtResource("8_on7w5")
+metadata/_edit_group_ = true
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_fjy2x")
+animation = &"Up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sjm07")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_rl67p")
