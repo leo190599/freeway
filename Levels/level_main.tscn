@@ -1,9 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6w6d27aavt5n"]
+[gd_scene load_steps=3 format=3 uid="uid://c6w6d27aavt5n"]
 
 [ext_resource type="PackedScene" uid="uid://dtspkjfjkilvl" path="res://Player/player.tscn" id="1_jh0w4"]
+[ext_resource type="Script" path="res://Levels/level_main.gd" id="1_jmcon"]
 
 [node name="LevelMain" type="Node2D"]
+script = ExtResource("1_jmcon")
 
 [node name="Player" parent="." instance=ExtResource("1_jh0w4")]
 position = Vector2(671, 186)
 vel = 10.0
+x_position = 960.0
+
+[node name="Player2" parent="." instance=ExtResource("1_jh0w4")]
+position = Vector2(671, 186)
+vel = 10.0
+x_position = 320.0
+up_action_name = "ui_up_p2"
+down_action_name = "ui_down_p2"
+
+[connection signal="scored" from="Player" to="." method="_on_player1_scored"]
+[connection signal="scored" from="Player2" to="." method="_on_player2_scored"]
