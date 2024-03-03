@@ -1,0 +1,37 @@
+[gd_scene load_steps=17 format=3 uid="uid://bclb1j440cb77"]
+
+[ext_resource type="Texture2D" uid="uid://cxtw2up2fkbwi" path="res://Material freeway/carros/coches (1).png" id="1_f4po3"]
+[ext_resource type="Script" path="res://Enemies/car.gd" id="1_l3u70"]
+[ext_resource type="Texture2D" uid="uid://dortd2vrcalr6" path="res://Material freeway/carros/coches (2).png" id="3_nt4nn"]
+[ext_resource type="Texture2D" uid="uid://c4x0wojvkmy7p" path="res://Material freeway/carros/coches (3).png" id="4_bopad"]
+[ext_resource type="Texture2D" uid="uid://7tb7a8sdjsje" path="res://Material freeway/carros/coches (4).png" id="5_np6cn"]
+[ext_resource type="Texture2D" uid="uid://gq0fu80po2kn" path="res://Material freeway/carros/coches (5).png" id="6_yikad"]
+[ext_resource type="Texture2D" uid="uid://cwhb0rjkllo8v" path="res://Material freeway/carros/coches (6).png" id="7_dnouv"]
+[ext_resource type="Texture2D" uid="uid://xcvglkwgyabp" path="res://Material freeway/carros/coches (7).png" id="8_q332n"]
+[ext_resource type="Texture2D" uid="uid://euem3f8fc2wg" path="res://Material freeway/carros/coches (8).png" id="9_bagi4"]
+[ext_resource type="Texture2D" uid="uid://donfa41jmavsk" path="res://Material freeway/carros/coches (9).png" id="10_fx4cr"]
+[ext_resource type="Texture2D" uid="uid://buyrarirbwxw5" path="res://Material freeway/carros/coches (10).png" id="11_uexye"]
+[ext_resource type="Texture2D" uid="uid://bbjqm61c7jvgd" path="res://Material freeway/carros/coches (11).png" id="12_r3phi"]
+[ext_resource type="Texture2D" uid="uid://cagjdv7t7b06l" path="res://Material freeway/carros/coches (12).png" id="13_g3y7b"]
+[ext_resource type="Texture2D" uid="uid://cc4quxb7buu18" path="res://Material freeway/carros/coches (13).png" id="14_f818p"]
+[ext_resource type="Texture2D" uid="uid://bfvw6rfgiy5yu" path="res://Material freeway/carros/coches (14).png" id="15_wpkto"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imu83"]
+
+[node name="car" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_l3u70")
+possible_spries = Array[Texture2D]([ExtResource("1_f4po3"), ExtResource("3_nt4nn"), ExtResource("4_bopad"), ExtResource("5_np6cn"), ExtResource("6_yikad"), ExtResource("7_dnouv"), ExtResource("8_q332n"), ExtResource("9_bagi4"), ExtResource("10_fx4cr"), ExtResource("11_uexye"), ExtResource("12_r3phi"), ExtResource("13_g3y7b"), ExtResource("14_f818p"), ExtResource("15_wpkto")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_f4po3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.435, 2.339)
+shape = SubResource("RectangleShape2D_imu83")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-20, -30.075, 40, 60)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
