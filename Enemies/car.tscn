@@ -18,8 +18,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_imu83"]
 
-[node name="car" type="RigidBody2D"]
+[node name="car" type="RigidBody2D" groups=["cars"]]
+rotation = 1.5708
 gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_l3u70")
 possible_spries = Array[Texture2D]([ExtResource("1_f4po3"), ExtResource("3_nt4nn"), ExtResource("4_bopad"), ExtResource("5_np6cn"), ExtResource("6_yikad"), ExtResource("7_dnouv"), ExtResource("8_q332n"), ExtResource("9_bagi4"), ExtResource("10_fx4cr"), ExtResource("11_uexye"), ExtResource("12_r3phi"), ExtResource("13_g3y7b"), ExtResource("14_f818p"), ExtResource("15_wpkto")])
 
